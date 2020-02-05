@@ -8,6 +8,22 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+  <custom-app id="custom-app"></custom-app>
+
+  <hr>
+  <div>
+    <input type="text" id="name"><button onclick="sendName()">Send outside component</button>
+  </div>
+  <script>
+    const customApp = document.getElementById('custom-app');
+    const nameInput = document.getElementById('name');
+
+    function sendName() {
+      const value = nameInput.value;
+      nameInput.value = '';
+
+      customApp.name = value;
+    }
+  </script>
 </body>
 </html>

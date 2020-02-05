@@ -1,16 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 
-import { AppComponent } from './app.component';
+import { MainComponent } from './main.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    MainComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [
+    MainComponent,
+  ],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injector: Injector) {
+    const custom = createCustomElement(MainComponent, { injector });
+    customElements.define('custom-app', custom);
+  }
+  ngDoBootstrap() {}
+}
