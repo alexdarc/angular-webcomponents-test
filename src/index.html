@@ -12,7 +12,11 @@
 
   <hr>
   <div>
-    <input type="text" id="name"><button onclick="sendName()">Send outside component</button>
+    <label>
+      Enter name:
+      <input type="text" id="name">
+    </label>
+    <button onclick="sendName()">Send outside component</button>
   </div>
   <script>
     const customApp = document.getElementById('custom-app');

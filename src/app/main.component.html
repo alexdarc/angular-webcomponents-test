@@ -1,13 +1,17 @@
 <h2>Hello {{name}}</h2>
 
+<h3>Log</h3>
 <ul>
-  <li *ngFor="let personName of persons">
-    <input type="text" [(ngModel)]="personName">
-    <p>{{personName}}</p>
+  <li *ngFor="let item of log">
+    <input type="text" [(ngModel)]="item">
+    <p>{{item}}</p>
   </li>
 </ul>
 
 <div>
-  <input type="text" #nameInput>
-  <button (click)="addItem(nameInput.value); nameInput.value = ''">Send inside component</button>
+  <label>
+    Enter name:
+    <input type="text" #nameInput>
+  </label>
+  <button (click)="name = nameInput.value; nameInput.value = ''">Send inside component</button>
 </div>

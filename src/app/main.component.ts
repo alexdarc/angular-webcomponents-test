@@ -14,15 +14,14 @@ export class MainComponent {
   }
   set name(name) {
     this._name = name;
-    this.addItem(this._name);
+    this.addLog();
   }
 
-  persons: string[] = [
-    'Dovahkiin'
+  log: string[] = [
   ];
 
-  addItem(value) {
-    this.persons.push(value);
+  addLog() {
+    this.log.push(`${Date.now()}: ${this._name}`);
   }
 
   constructor() { }
