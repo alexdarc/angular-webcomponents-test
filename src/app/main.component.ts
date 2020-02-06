@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 
 @Component({
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent {
+export class MainComponent implements DoCheck {
   // tslint:disable-next-line:variable-name
   private _name = '';
 
@@ -25,4 +25,8 @@ export class MainComponent {
   }
 
   constructor() { }
+
+  ngDoCheck(): void {
+    console.log('ngDoCheck');
+  }
 }
